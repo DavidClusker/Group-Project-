@@ -1,0 +1,49 @@
+body { font-family: georgia, serif; 
+ background-color: #eb8934;
+}
+#profileBack {
+  width: 650px;
+  height: 700px;
+ background-image: url("default.jpg");
+ margin: auto;
+ background-size: cover;
+}
+h1{text-align: center;background-color: #e2316d;}
+div{width:100%;}
+	p{padding: 50px;}
+div1{display:none;}
+.button1{
+	margin: auto;background-color:  #e2316d;;border-radius: 50%;display: block;padding: 15px 32px;
+}
+h3{
+	text-align: center;background-color: Blue;
+}
+img{
+	 border: 5px solid #f77102;
+	 border-radius: 50%;
+}
+
+.button2 {
+  background-color: #e803fc;
+}
+.button3{
+	background-color: #f71307;
+}
+.au{
+	display: inline; margin: auto; border-radius: 50%; padding: 15px 32px; background-color: #d98404;
+}
+
+  .dropdown:hover .dropdown-content {display: block;}
+  .dropdown-content {
+  display: none;
+  /*position: absolute;*/
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  max-height: 100px;
+  overflow-y: auto;
+}
+.container{
+  font-family: Arial, sans-serif;
+}
