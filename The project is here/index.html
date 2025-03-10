@@ -57,7 +57,7 @@
 					<input type="password" class="form-input" placeholder="password">
 					<div class="form-input-error-message"></div>
 				</div>
-				<button class="form-button" type="submit">Continue</button>
+				<button class="form-button" type="button" onclick="proceed()">Continue</button>
 				<p classs="form-text">
 				<a href="#" class="form-link">Forgot your password?</a>
 				
@@ -100,6 +100,9 @@
 	</div>
 	<link rel="javaScript" href="bootstrap.min.js">
 		<script>
+			function proceed(){
+				window.location.href = "Restaurant1.html";
+			}
 			// Fetch data from MongoDB
 			fetch('/data')
 				.then(response => {
