@@ -1,14 +1,12 @@
 /* main.css */
 
 /* General Body Styles */
-
 body, .container, .form {
     font-family: Arial, sans-serif;
-    background-color: burlywood;
+    background-color: #003366;
     margin: 0;
     padding: 0;
     text-align: center;
-    justify-content: center;
 }
 
 /* Navbar Styles */
@@ -17,7 +15,11 @@ body, .container, .form {
     overflow: hidden;
 }
 
-
+.navbar a {
+    color: grey;
+    text-decoration: none;
+    display: inline-block;
+}
 
 .navbar a:hover {
     background-color: #575757;

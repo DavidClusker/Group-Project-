@@ -11,7 +11,7 @@ body { font-family: georgia, serif;
 h1{text-align: center;background-color: #e2316d;}
 div{width:100%;}
 	p{padding: 50px;}
-div1{display:none;}
+div1{display:none;float: left;}
 .button1{
 	margin: auto;background-color:  #e2316d;;border-radius: 50%;display: block;padding: 15px 32px;
 }
@@ -32,7 +32,16 @@ img{
 .au{
 	display: inline; margin: auto; border-radius: 50%; padding: 15px 32px; background-color: #d98404;
 }
-
+.navbar {
+      background-color: #333;
+      overflow: hidden;
+  }
+  .navbar a {
+      color: white;
+      padding: 14px 20px;
+      text-decoration: none;
+      display: inline-block;
+  }
   .dropdown:hover .dropdown-content {display: block;}
   .dropdown-content {
   display: none;
@@ -44,6 +53,6 @@ img{
   max-height: 100px;
   overflow-y: auto;
 }
-.container{
-  font-family: Arial, sans-serif;
+.container-fluid{
+	 background-color: #03fce3;
 }
