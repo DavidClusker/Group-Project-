@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="styleSheet" href="bootstrap.min.css">
+		<link rel="stylesheet" href="main.css">
+		
+		<style>
+			body{
+				background-color: burlywood;
+				
+			}
+			.form{
+				background-color: #003366;
+				border-radius: 25px;
+			}
+		</style>
+	</head>
+	<body>
+		
+	<div class="main" >
+		<form class="form " id="login">
+			<h1 class="form-title">Login</h1>
+			<div class="form-message-error"></div>
+				<div class="form-input-group">
+					<input type="text" class="form-input" autofocus placeholder="Username or Email">
+					<div class="form-input-error-message"></div>
+				</div>
+				<div class="form-input-group">
+					<input type="password" class="form-input" placeholder="password">
+					<div class="form-input-error-message"></div>
+				</div>
+				<button class="form-button" type="button" onclick="proceed()">Continue</button>
+				<p classs="form-text">
+				<a href="#" class="form-link">Forgot your password?</a>
+				
+				</p>
+				<p classs="form-text">
+				<a id="linkCreateAccount" class="form-link">Dont have an account? Create an account</a>
+				
+				</p>
+				
+				
+		</form>
+		<form class="form" id="createAccount ">
+			<h1 class="form-title form-hidden">Create Account</h1>
+			<div class="form-message-error"></div>
+				<div class="form-input-group">
+					<input type="text" class="form-input" autofocus placeholder="loginUsername">
+					<div class="form-input-error-message"></div>
+				</div>
+				<div class="form-input-group">
+					<input type="text" class="form-input" autofocus placeholder="Email address">
+					<div class="form-input-error-message"></div>
+				</div>
+				<div class="form-input-group">
+					<input type="password" class="form-input" placeholder="loginPassword">
+					<div class="form-input-error-message"></div>
+				</div>
+				<div class="form-input-group">
+					<input type="password" class="form-input" placeholder=" Confirm password">
+					<div class="form-input-error-message"></div>
+				</div>
+				<button class="registerForm" type="submit" value="Register">Continue</button>
+				
+				<p classs="form-text">
+				<a id="linkLogin" class="form-link">Already have an account? Sign in</a>
+				
+				</p>
+		</form>
+		
+		
+	</div>
+	<link rel="javaScript" href="bootstrap.min.js">
+		<script>
+			function proceed(){
+				window.location.href = "Restaurant1.html";
+			}
+			// Fetch data from MongoDB
+			fetch('/data')
+				.then(response => {
+					if (!response.ok) throw new Error('Network response was not ok');
+					return response.json();
+				})
+				.then(data => {
+					const list = document.getElementById('user-list');
+					data.forEach(user => {
+						const li = document.createElement('li');
+						li.textContent = `Username: ${user.username}, Email: ${user.email}`; // Adjust based on your data
+						list.appendChild(li);
+					});
+				})
+				.catch(err => {
+					console.error('Error fetching data:', err);
+					const list = document.getElementById('user-list');
+					const li = document.createElement('li');
+					li.textContent = 'Failed to load data: ' + err.message;
+					list.appendChild(li);
+				});
+
+			// Login form submission
+			document.getElementById("loginForm").addEventListener("submit", async (e) => {
+				e.preventDefault();
+				const username = document.getElementById("loginUsername").value;
+				const password = document.getElementById("loginPassword").value;
+
+				const response = await fetch("/login", {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({ username, password })
+				});
+
+				const data = await response.json();
+				alert(data.message);
+			});
+
+			// Registration form submission
+			document.getElementById("registerForm").addEventListener("submit", async (e) => {
+				e.preventDefault();
+				const username = document.getElementById("regUsername").value;
+				const password = document.getElementById("regPassword").value;
+				const email = document.getElementById("regEmail").value;
+				const dob = document.getElementById("regDOB").value;
+
+				const response = await fetch("/register", {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({ username, password, email, dob })
+				});
+
+				const data = await response.json();
+				alert(data.message);
+			});
+			
+		</script>
+
+	</body>
+</html>
