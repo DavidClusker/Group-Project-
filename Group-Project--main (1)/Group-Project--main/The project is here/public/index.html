@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Giftbarx Login & Registration</title>
+
+  <link rel="styleSheet" href="bootstrap.min.css">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="main">
+    <!-- Login Form -->
+    <form class="form" id="loginForm">
+      <h1 class="form-title">Login</h1>
+      <div class="form-input-group">
+        <input type="text" id="loginUsername" class="form-input" autofocus placeholder="Username" required>
+      </div>
+      <div class="form-input-group">
+        <input type="password" id="loginPassword" class="form-input" placeholder="Password" required>
+      </div>
+      <button class="form-button" type="submit">Continue</button>
+      <p class="form-text">
+        <a href="#" class="form-link">Forgot your password?</a>
+      </p>
+      <p class="form-text">
+        <a href="#" id="linkCreateAccount" class="form-link">Don't have an account? Create one</a>
+      </p>
+    </form>
+
+    <!-- Registration Form -->
+    <form class="form" id="registerForm" style="display: none;">
+      <h1 class="form-title">Create Account</h1>
+      <div class="form-input-group">
+        <input type="text" id="regUsername" class="form-input" autofocus placeholder="Username" required>
+      </div>
+      <div class="form-input-group">
+        <input type="email" id="regEmail" class="form-input" placeholder="Email address" required>
+      </div>
+      <div class="form-input-group">
+        <input type="password" id="regPassword" class="form-input" placeholder="Password" required>
+      </div>
+      <div class="form-input-group">
+        <input type="date" id="regDOB" class="form-input" placeholder="Date of Birth" required>
+      </div>
+      <button class="form-button" type="submit">Continue</button>
+      <p class="form-text">
+        <a href="#" id="linkLogin" class="form-link">Already have an account? Sign in</a>
+      </p>
+    </form>
+
+    <!-- User Data Display -->
+  <!--  <h2>Registered Users</h2>
+    <ul id="user-list"></ul>
+  </div>-->
+
+  <script>
+    // Toggle between login and registration forms
+    const loginForm = document.getElementById('loginForm');
+    const registerForm = document.getElementById('registerForm');
+    const linkCreateAccount = document.getElementById('linkCreateAccount');
+    const linkLogin = document.getElementById('linkLogin');
+
+    linkCreateAccount.addEventListener('click', (e) => {
+      e.preventDefault();
+      loginForm.style.display = 'none';
+      registerForm.style.display = 'block';
+    });
+
+    linkLogin.addEventListener('click', (e) => {
+      e.preventDefault();
+      registerForm.style.display = 'none';
+      loginForm.style.display = 'block';
+    });
+
+    // Fetch and display data from MongoDB
+    fetch('/data')
+      .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.json();
+      })
+      .then(data => {
+        const list = document.getElementById('user-list');
+        data.forEach(user => {
+          const li = document.createElement('li');
+          li.textContent = `Username: ${user.username}, Email: ${user.email}, DOB: ${new Date(user.dob).toLocaleDateString()}`;
+          list.appendChild(li);
+        });
+      })
+      .catch(err => {
+        console.error('Error fetching data:', err);
+        const list = document.getElementById('user-list');
+        const li = document.createElement('li');
+        li.textContent = 'Failed to load data: ' + err.message;
+        list.appendChild(li);
+      });
+
+    // Login form submission
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const username = document.getElementById('loginUsername').value;
+      const password = document.getElementById('loginPassword').value;
+
+      const response = await fetch('/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password }),
+      });
+
+      const data = await response.json();
+      alert(data.message);
+      if (response.ok) {
+        window.location.href = 'Restaurant1.html'; // Redirect on success
+      }
+    });
+
+    // Registration form submission
+    registerForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const username = document.getElementById('regUsername').value;
+      const password = document.getElementById('regPassword').value;
+      const email = document.getElementById('regEmail').value;
+      const dob = document.getElementById('regDOB').value;
+
+      const response = await fetch('/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password, email, dob }),
+      });
+
+      const data = await response.json();
+      alert(data.message);
+      if (response.ok) {
+        registerForm.style.display = 'none';
+        loginForm.style.display = 'block'; // Switch to login after successful registration
+      }
+    });
+  </script>
+</body>
+</html>
