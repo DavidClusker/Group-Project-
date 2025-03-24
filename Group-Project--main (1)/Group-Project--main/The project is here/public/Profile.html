@@ -74,6 +74,9 @@
 	<div1 id="mozart">
 	<button  class="button2" onclick="document.getElementById('profImage').src='mozart.jpg'">Mozart profile</button>
 	</div1>
+	<div1 id="monke">
+	<button  class="button2" onclick="document.getElementById('profImage').src='monke.png'">Monke profile</button>
+	</div1>
 	<div1 id="gold1">
 	<button  class="button2" onclick="document.getElementById('profImage').src='treasure.jpg'">gold profile</button>
 	</div1>
@@ -97,6 +100,9 @@
 	</div1>
 	<div1 id="note">
 	<button class="button3" onclick="Noteset()">notes</button>
+	</div1>
+	<div1 id="jungle">
+	<button class="button3" onclick="Jungleset()">jungle</button>
 	</div1>
 	<div1 id="gold">
 	<button class="button3" onclick="Goldset()">gold</button>
@@ -159,7 +165,7 @@ Music error, no refunds
 	<script>
 	
 
-const exArray = [reveal0,reveal0,reveal0,reveal0,reveal1, reveal2, reveal3, reveal4,reveal5,reveal6, reveal7, reveal8,reveal9,reveal10,reveal11,reveal12,reveal13,reveal14,reveal15,reveal16,reveal17,reveal18,reveal19];//add new functions here to add new functions
+const exArray = [reveal0,reveal0,reveal0,reveal0,reveal1, reveal2, reveal3, reveal4,reveal5,reveal6, reveal7, reveal8,reveal9,reveal10,reveal11,reveal12,reveal13,reveal14,reveal15,reveal16,reveal17,reveal18,reveal19,reveal20,reveal21];//add new functions here to add new functions
 function changeTextP() { 
   document.getElementById("name").style.color = '#ba0af0';<!--colour change javascript-->
 }
@@ -217,6 +223,9 @@ function Retroset() {
 }
 function Noteset(){
 document.getElementById("profileBack").style.backgroundImage = "url(note.jpg)";
+}
+function Jungleset(){
+document.getElementById("profileBack").style.backgroundImage = "url(jungle.jpg)";
 }
 function Goldset(){
 document.getElementById("profileBack").style.backgroundImage = "url(1000.jpg)";
@@ -345,6 +354,16 @@ function reveal18() {
 function reveal19() {
 	alert("you got casino music");
   var x = document.getElementById("casino");
+  x.style.display = "block";
+}
+function reveal20() {
+	alert("you got monke");
+  var x = document.getElementById("monke");
+  x.style.display = "block";
+}
+function reveal21() {
+	alert("you got jungle");
+  var x = document.getElementById("jungle");
   x.style.display = "block";
 }
 </script><!--this script allows you to unlock new profile parts as long as theyre in the array-->
