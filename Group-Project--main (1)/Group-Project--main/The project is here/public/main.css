@@ -4,7 +4,7 @@
 
 body, .container, .form {
     font-family: Arial, sans-serif;
-    background-color: burlywood;
+    background-color: MidnightBlue;
     margin: 0;
     padding: 0;
     text-align: center;
@@ -127,7 +127,7 @@ button:hover, .form-button:hover, .email-button:hover {
 .top {
     padding: 10px;
     text-align: center;
-    background-color: burlywood;
+    background-color: MidnightBlue;
 }
 
 .selection {
