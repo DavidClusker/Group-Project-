@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Register</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .container { width: 300px; margin: 50px auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px; }
+        input { width: 90%; padding: 8px; margin: 5px 0; }
+        button { width: 95%; padding: 8px; background: #28a745; color: white; border: none; cursor: pointer; }
+        .toggle { cursor: pointer; color: blue; text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2 id="formTitle">Register</h2>
+    <form id="registerForm" method="POST" action="register.php">
+        <input type="text" name="username" placeholder="Username" required><br>
+        <input type="email" name="email" placeholder="Email" required><br>
+        <input type="password" name="password" placeholder="Password" required><br>
+        <button type="submit" name="register">Register</button>
+    </form>
+
+    <form id="loginForm" method="POST" action="login.php" style="display:none;">
+        <input type="email" name="email" placeholder="Email" required><br>
+        <input type="password" name="password" placeholder="Password" required><br>
+        <button type="submit" name="login">Login</button>
+    </form>
+
+    <p class="toggle" onclick="toggleForms()">Already have an account? Login</p>
+</div>
+
+<script>
+    function toggleForms() {
+        let regForm = document.getElementById('registerForm');
+        let logForm = document.getElementById('loginForm');
+        let title = document.getElementById('formTitle');
+        let toggleText = document.querySelector('.toggle');
+
+        if (regForm.style.display === "none") {
+            regForm.style.display = "block";
+            logForm.style.display = "none";
+            title.innerText = "Register";
+            toggleText.innerText = "Already have an account? Login";
+        } else {
+            regForm.style.display = "none";
+            logForm.style.display = "block";
+            title.innerText = "Login";
+            toggleText.innerText = "Don't have an account? Register";
+        }
+    }
+</script>
+
+</body>
+</html>
