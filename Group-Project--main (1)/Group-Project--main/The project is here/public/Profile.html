@@ -77,6 +77,9 @@
 	<div1 id="monke">
 	<button  class="button2" onclick="document.getElementById('profImage').src='monke.png'">Monke profile</button>
 	</div1>
+	<div1 id="peng">
+	<button  class="button2" onclick="document.getElementById('profImage').src='peng.png'">peng profile</button>
+	</div1>
 	<div1 id="gold1">
 	<button  class="button2" onclick="document.getElementById('profImage').src='treasure.jpg'">gold profile</button>
 	</div1>
@@ -103,6 +106,9 @@
 	</div1>
 	<div1 id="jungle">
 	<button class="button3" onclick="Jungleset()">jungle</button>
+	</div1>
+	<div1 id="south">
+	<button class="button3" onclick="Southset()">Antartica</button>
 	</div1>
 	<div1 id="gold">
 	<button class="button3" onclick="Goldset()">gold</button>
@@ -165,7 +171,7 @@ Music error, no refunds
 	<script>
 	
 
-const exArray = [reveal0,reveal0,reveal0,reveal0,reveal1, reveal2, reveal3, reveal4,reveal5,reveal6, reveal7, reveal8,reveal9,reveal10,reveal11,reveal12,reveal13,reveal14,reveal15,reveal16,reveal17,reveal18,reveal19,reveal20,reveal21];//add new functions here to add new functions
+const exArray = [reveal0,reveal0,reveal0,reveal0,reveal1, reveal2, reveal3, reveal4,reveal5,reveal6, reveal7, reveal8,reveal9,reveal10,reveal11,reveal12,reveal13,reveal14,reveal15,reveal16,reveal17,reveal18,reveal19,reveal20,reveal21,reveal22,reveal23];//add new functions here to add new functions
 function changeTextP() { 
   document.getElementById("name").style.color = '#ba0af0';<!--colour change javascript-->
 }
@@ -227,6 +233,9 @@ document.getElementById("profileBack").style.backgroundImage = "url(note.jpg)";
 function Jungleset(){
 document.getElementById("profileBack").style.backgroundImage = "url(jungle.jpg)";
 }
+function Southset(){
+document.getElementById("profileBack").style.backgroundImage = "url(peng3.png)";
+}
 function Goldset(){
 document.getElementById("profileBack").style.backgroundImage = "url(1000.jpg)";
 }
@@ -246,6 +255,7 @@ function goldenGift1() {
 if(points>=1000){
 points=points-1000;
 pointUpdate();
+window.open("room.html","_blank");
 alert("you got gold!");
 var x = document.getElementById("gold1");
   x.style.display = "block";
@@ -364,6 +374,16 @@ function reveal20() {
 function reveal21() {
 	alert("you got jungle");
   var x = document.getElementById("jungle");
+  x.style.display = "block";
+}
+function reveal22() {
+	alert("you got penguin");
+  var x = document.getElementById("peng");
+  x.style.display = "block";
+}
+function reveal23() {
+	alert("you got Antartica");
+  var x = document.getElementById("south");
   x.style.display = "block";
 }
 </script><!--this script allows you to unlock new profile parts as long as theyre in the array-->
