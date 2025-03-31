@@ -1,3 +1,8 @@
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,7 +60,7 @@
 	<h1 id="name"style="color:#07fade;" center> Enter your name</h1>
 	<div>
 	<button class="button2" onclick="document.getElementById('profImage').src='singer.jpg'">default profile</button><!--button enabled by default featuring the new guinea singing dog-->
-	<button class="button2" onclick="document.getElementById('profImage').src='lapras.png'">lapras profile</button><!--https://local.pokemon.jp/en/-->
+	<button class="button2" onclick="document.getElementById('profImage').src='mijumaru.png'">oshawott profile</button><!--https://local.pokemon.jp/en/-->
 	<div1 id="Quag"><!--This div allows elements to be absent until called by the randomGift function-->
 	<button  class="button2" onclick="document.getElementById('profImage').src='quag.png'">Quag profile</button>
 	</div1>
@@ -66,7 +71,7 @@
 	<button  class="button2" onclick="document.getElementById('profImage').src='Marco.png'">Marco profile</button>
 	</div1>
 	<div1 id="oshawott">
-	<button  class="button2" onclick="document.getElementById('profImage').src='mijumaru.png'">Oshawott profile</button>
+	<button  class="button2" onclick="document.getElementById('profImage').src='lapras.png'">lapras profile</button>
 	</div1>
 	<div1 id="snoc">
 	<button  class="button2" onclick="document.getElementById('profImage').src='snoc.jpg'">HaryPoter? profile</button>
@@ -168,10 +173,11 @@ Music error, no refunds
 	<button  onclick="goldenGift1()" class="au">1000 point profile</button>
 	</div>
 	<h3>Use your points to obtain a random gift</h3>
+	<button id="lock-btn">Remove unlocks :'[</button>
 	<script>
 	
 
-const exArray = [reveal0,reveal0,reveal0,reveal0,reveal1, reveal2, reveal3, reveal4,reveal5,reveal6, reveal7, reveal8,reveal9,reveal10,reveal11,reveal12,reveal13,reveal14,reveal15,reveal16,reveal17,reveal18,reveal19,reveal20,reveal21,reveal22,reveal23];//add new functions here to add new functions
+const exArray = [reveal1,reveal2,reveal5,reveal6,reveal15,reveal16];//add new functions here to add new functions
 function changeTextP() { 
   document.getElementById("name").style.color = '#ba0af0';<!--colour change javascript-->
 }
@@ -246,6 +252,7 @@ pointUpdate();
 alert("you got gold!");
 var x = document.getElementById("gold");
   x.style.display = "block";
+  localStorage.setItem("Gold", "true");
 }
 else{
 alert("not enough points");
@@ -258,6 +265,7 @@ pointUpdate();
 alert("you got gold!");
 var x = document.getElementById("gold1");
   x.style.display = "block";
+  localStorage.setItem("Gold1", "true");
 }
 else{
 alert("not enough points");
@@ -267,6 +275,50 @@ function setName() {
   var x = document.getElementById("profileName").value;
   document.getElementById("name").innerHTML = x;
 }
+if (localStorage.getItem("Quagsire") == "true") {
+                Quag.style.display = "block";
+            }
+if (localStorage.getItem("Ka") == "true") {
+                karaoke.style.display = "block";
+            }
+if (localStorage.getItem("Gold1") == "true") {
+                gold1.style.display = "block";
+            }
+if (localStorage.getItem("Gold") == "true") {
+                gold.style.display = "block";
+            }
+if (localStorage.getItem("Pasta") == "true") {
+                spaghet.style.display = "block";
+            }
+if (localStorage.getItem("mozart") == "true") {
+                mozart.style.display = "block";
+            }
+if (localStorage.getItem("Marco") == "true") {
+                Marco.style.display = "block";
+            }
+if (localStorage.getItem("note") == "true") {
+                note.style.display = "block";
+            }			
+const lockBtn = document.getElementById("lock-btn");
+lockBtn.addEventListener("click", function() {
+                localStorage.removeItem("unlocked");
+                Quag.style.display = "none";
+				localStorage.setItem("Quagsire", "false");
+				karaoke.style.display = "none";
+				localStorage.setItem("Ka", "false");
+				gold1.style.display = "none";
+				localStorage.setItem("Gold1", "false");
+				gold.style.display = "none";
+				localStorage.setItem("Gold", "false");
+				spaghet.style.display = "none";
+				localStorage.setItem("Pasta", "false");
+				mozart.style.display = "none";
+				localStorage.setItem("mozart", "false");
+				Marco.style.display = "none";
+				localStorage.setItem("Marco", "false");
+				note.style.display = "none";
+				localStorage.setItem("note", "false");
+            });
 function reveal0(){
 alert("sorry nothing");
 }
@@ -274,11 +326,13 @@ function reveal1() {
 	alert("you got Quag");
   var x = document.getElementById("Quag");
   x.style.display = "block";
+  localStorage.setItem("Quagsire", "true");
 }
 function reveal2() {
 	alert("you got Karaoke");
   var x = document.getElementById("karaoke");
   x.style.display = "block";
+  localStorage.setItem("Ka", "true");
 }
 function reveal3() {
 	alert("you got doggo");
@@ -293,13 +347,16 @@ function reveal4() {
 function reveal5() {
 	alert("Marco");
   var x = document.getElementById("Marco");
-  x.style.display = "block"; 
+  x.style.display = "block";
+localStorage.setItem("Marco", "true");  
 }
 function reveal6() {
 	alert("you got Spaghetti");
   var x = document.getElementById("spaghet");
-	x.style.display = "block"; 
-}
+	x.style.display = "block";
+localStorage.setItem("Pasta", "true");
+}	
+
 function reveal7() {
 	alert("you got oshawott");
   var x = document.getElementById("oshawott");
@@ -344,11 +401,13 @@ function reveal15() {
 	alert("you got Mozart");
   var x = document.getElementById("mozart");
   x.style.display = "block";
+  localStorage.setItem("mozart", "true");
 }
 function reveal16() {
 	alert("you got notes");
   var x = document.getElementById("note");
   x.style.display = "block";
+  localStorage.setItem("note", "true");
 }
 function reveal17() {
 	alert("you got oppressive music");
