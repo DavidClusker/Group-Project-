@@ -1,13 +1,18 @@
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>giftbarx: Your profile and wild prizes</title>
-<link rel="stylesheet" href="css/Profile.css">
+<link rel="stylesheet" href="Profile.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="styleSheet" href="css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/main.css">
+<link rel="styleSheet" href="bootstrap.min.css">
+		<link rel="stylesheet" href="main.css">
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg bg-body-tertiary " data-bs-theme="dark">
@@ -48,35 +53,43 @@
     </div>-->
 	<h1  style="text-align:center;">Your profile</h1>
 	<div id="myPoints">100</div>
-	<button class="button3" onclick="makePoints()">get points</button>
+	<button onclick="makePoints()">get points</button>
 	<button class="button1" onclick="randomGift()">obtain lootbox for 10 points</button><!--allows you to access new profile pieces-->
 	<div id="profileBack">
-	<img id="profImage" src="images/singer.jpg" style="height:80px " width="width:100px" alt="profile image"><!--profile image area-->
+	<img id="profImage" src="singer.jpg" style="height:100px " width="width:100px" alt="profile image"><!--profile image area-->
 	<h1 id="name"style="color:#07fade;" center> Enter your name</h1>
-	<button class="button2" onclick="document.getElementById('profImage').src='images/singer.jpg'">default profile</button><!--button enabled by default featuring the new guinea singing dog-->
-	<button class="button2" onclick="document.getElementById('profImage').src='images/lapras.png'">lapras profile</button><!--https://local.pokemon.jp/en/-->
+	<div>
+	<button class="button2" onclick="document.getElementById('profImage').src='singer.jpg'">default profile</button><!--button enabled by default featuring the new guinea singing dog-->
+	<button class="button2" onclick="document.getElementById('profImage').src='mijumaru.png'">oshawott profile</button><!--https://local.pokemon.jp/en/-->
 	<div1 id="Quag"><!--This div allows elements to be absent until called by the randomGift function-->
 	<button  class="button2" onclick="document.getElementById('profImage').src='quag.png'">Quag profile</button>
 	</div1>
 	<div1 id="doggo">
-	<button  class="button2" onclick="document.getElementById('profImage').src='images/doggo.png'">doggo profile</button>
+	<button  class="button2" onclick="document.getElementById('profImage').src='doggo.png'" >doggo profile</button>
 	</div1>
 	<div1 id="Marco">
-	<button  class="button2" onclick="document.getElementById('profImage').src='images/Marco.png'">Marco profile</button>
+	<button  class="button2" onclick="document.getElementById('profImage').src='Marco.png'">Marco profile</button>
 	</div1>
 	<div1 id="oshawott">
-	<button  class="button2" onclick="document.getElementById('profImage').src='images/mijumaru.png'">Oshawott profile</button>
+	<button  class="button2" onclick="document.getElementById('profImage').src='lapras.png'">lapras profile</button>
 	</div1>
 	<div1 id="snoc">
-	<button  class="button2" onclick="document.getElementById('profImage').src='images/snoc.jpg'">Harry potter? profile</button>
+	<button  class="button2" onclick="document.getElementById('profImage').src='snoc.jpg'">HaryPoter? profile</button>
 	</div1>
 	<div1 id="mozart">
-	<button  class="button2" onclick="document.getElementById('profImage').src='images/mozart.jpg'">Mozart profile</button>
+	<button  class="button2" onclick="document.getElementById('profImage').src='mozart.jpg'">Mozart profile</button>
+	</div1>
+	<div1 id="monke">
+	<button  class="button2" onclick="document.getElementById('profImage').src='monke.png'">Monke profile</button>
+	</div1>
+	<div1 id="peng">
+	<button  class="button2" onclick="document.getElementById('profImage').src='peng.png'">peng profile</button>
 	</div1>
 	<div1 id="gold1">
-	<button  class="button2" onclick="document.getElementById('profImage').src='images/treasure.jpg'">gold profile</button>
+	<button  class="button2" onclick="document.getElementById('profImage').src='treasure.jpg'">gold profile</button>
 	</div1>
-	<button class="button3" onclick="Defaultset()">default background</button><!--A background setting button-->
+	</div>
+	<button class="button3" onclick="Defaultset()">default</button><!--A background setting button-->
 	<button class="button3" onclick="Otterset()">otter</button>
 	<div1 id="karaoke">
 	<button class="button3" onclick="Mikeset()">karaoke</button>
@@ -88,7 +101,7 @@
 	<button class="button3" onclick="Retroset()">Retro</button>
 	</div1>
 	<div1 id="spaghet">
-	<button class="button3" onclick="Spaghetset()">Spaghetti</button>
+	<button class="button3" onclick="Spaghetset()">Spaghet</button>
 	</div1>
 	<div1 id="beach">
 	<button class="button3" onclick="Beachset()">beach</button>
@@ -96,49 +109,55 @@
 	<div1 id="note">
 	<button class="button3" onclick="Noteset()">notes</button>
 	</div1>
+	<div1 id="jungle">
+	<button class="button3" onclick="Jungleset()">jungle</button>
+	</div1>
+	<div1 id="south">
+	<button class="button3" onclick="Southset()">Antartica</button>
+	</div1>
 	<div1 id="gold">
 	<button class="button3" onclick="Goldset()">gold</button>
 	</div1>
-	<button onclick="changeTextR()">red text</button><!--changes text colour red by default-->
-	<button onclick="changeTextB()">cyan text</button>
+	<button class="button4" onclick="changeTextR()">red text</button><!--changes text colour red by default-->
+	<button class="button4" onclick="changeTextB()">cyan text</button>
 	<div1 id="purple">
-	<button onclick="changeTextP()">purple text</button>
+	<button class="button4" onclick="changeTextP()">purple text</button>
 	</div1>
 	<div1 id="green" float:left;>
-	<button onclick="changeTextG()">green text</button>
+	<button class="button4" onclick="changeTextG()">green text</button>
 	</div1>
 	<div1 id="calm">
 	 calm music
 	<audio controls loop style="width: 100px; height: 25px">
-  <source src="images/calm.mp3" type="audio/mpeg"><!--A music selection-->
+  <source src="calm.mp3" type="audio/mpeg"><!--A music selection-->
 Music error, no refunds
 </audio>
 </div1>
 <div1 id="funk">
 	 funk music
 	<audio controls loop style="width: 100px; height: 25px">
-  <source src="images/funk.mp3" type="audio/mpeg">
+  <source src="funk.mp3" type="audio/mpeg">
 Music error, no refunds
 </audio>
 </div1>
 <div1 id="glory">
 	oppressive music
 	<audio controls loop style="width: 100px; height: 25px">
-  <source src="images/Glory to Arstotzka (Main Theme).mp3" type="audio/mpeg">
+  <source src="Glory to Arstotzka (Main Theme).mp3" type="audio/mpeg">
 Music error, no refunds
 </audio>
 </div1>
 <div1 id="town">
 	 town music
 	<audio controls loop style="width: 100px; height: 25px">
-  <source src="images/Accumula town.mp3" type="audio/mpeg">
+  <source src="Accumula town.mp3" type="audio/mpeg">
 Music error, no refunds
 </audio>
 </div1>
 <div1 id="casino">
 	 casino music
 	<audio controls loop style="width: 100px; height: 25px">
-  <source src="images/Casino.mp3" type="audio/mpeg">
+  <source src="Casino.mp3" type="audio/mpeg">
 Music error, no refunds
 </audio>
 </div1>
@@ -154,10 +173,11 @@ Music error, no refunds
 	<button  onclick="goldenGift1()" class="au">1000 point profile</button>
 	</div>
 	<h3>Use your points to obtain a random gift</h3>
+	<button id="lock-btn">Remove unlocks :'[</button>
 	<script>
 	
 
-const exArray = [reveal0,reveal0,reveal0,reveal0,reveal1, reveal2, reveal3, reveal4,reveal5,reveal6, reveal7, reveal8,reveal9,reveal10,reveal11,reveal12,reveal13,reveal14,reveal15,reveal16,reveal17,reveal18,reveal19];//add new functions here to add new functions
+const exArray = [reveal1,reveal2,reveal5,reveal6,reveal15,reveal16];//add new functions here to add new functions
 function changeTextP() { 
   document.getElementById("name").style.color = '#ba0af0';<!--colour change javascript-->
 }
@@ -179,6 +199,7 @@ function makePoints(){
 	pointUpdate();
 }
 function randomGift() {
+
 	if(points>=10){
 		points=points-10;
 		
@@ -215,6 +236,12 @@ function Retroset() {
 function Noteset(){
 document.getElementById("profileBack").style.backgroundImage = "url(note.jpg)";
 }
+function Jungleset(){
+document.getElementById("profileBack").style.backgroundImage = "url(jungle.jpg)";
+}
+function Southset(){
+document.getElementById("profileBack").style.backgroundImage = "url(peng3.png)";
+}
 function Goldset(){
 document.getElementById("profileBack").style.backgroundImage = "url(1000.jpg)";
 }
@@ -225,6 +252,7 @@ pointUpdate();
 alert("you got gold!");
 var x = document.getElementById("gold");
   x.style.display = "block";
+  localStorage.setItem("Gold", "true");
 }
 else{
 alert("not enough points");
@@ -237,6 +265,7 @@ pointUpdate();
 alert("you got gold!");
 var x = document.getElementById("gold1");
   x.style.display = "block";
+  localStorage.setItem("Gold1", "true");
 }
 else{
 alert("not enough points");
@@ -246,6 +275,50 @@ function setName() {
   var x = document.getElementById("profileName").value;
   document.getElementById("name").innerHTML = x;
 }
+if (localStorage.getItem("Quagsire") == "true") {
+                Quag.style.display = "block";
+            }
+if (localStorage.getItem("Ka") == "true") {
+                karaoke.style.display = "block";
+            }
+if (localStorage.getItem("Gold1") == "true") {
+                gold1.style.display = "block";
+            }
+if (localStorage.getItem("Gold") == "true") {
+                gold.style.display = "block";
+            }
+if (localStorage.getItem("Pasta") == "true") {
+                spaghet.style.display = "block";
+            }
+if (localStorage.getItem("mozart") == "true") {
+                mozart.style.display = "block";
+            }
+if (localStorage.getItem("Marco") == "true") {
+                Marco.style.display = "block";
+            }
+if (localStorage.getItem("note") == "true") {
+                note.style.display = "block";
+            }			
+const lockBtn = document.getElementById("lock-btn");
+lockBtn.addEventListener("click", function() {
+                localStorage.removeItem("unlocked");
+                Quag.style.display = "none";
+				localStorage.setItem("Quagsire", "false");
+				karaoke.style.display = "none";
+				localStorage.setItem("Ka", "false");
+				gold1.style.display = "none";
+				localStorage.setItem("Gold1", "false");
+				gold.style.display = "none";
+				localStorage.setItem("Gold", "false");
+				spaghet.style.display = "none";
+				localStorage.setItem("Pasta", "false");
+				mozart.style.display = "none";
+				localStorage.setItem("mozart", "false");
+				Marco.style.display = "none";
+				localStorage.setItem("Marco", "false");
+				note.style.display = "none";
+				localStorage.setItem("note", "false");
+            });
 function reveal0(){
 alert("sorry nothing");
 }
@@ -253,11 +326,13 @@ function reveal1() {
 	alert("you got Quag");
   var x = document.getElementById("Quag");
   x.style.display = "block";
+  localStorage.setItem("Quagsire", "true");
 }
 function reveal2() {
 	alert("you got Karaoke");
   var x = document.getElementById("karaoke");
   x.style.display = "block";
+  localStorage.setItem("Ka", "true");
 }
 function reveal3() {
 	alert("you got doggo");
@@ -272,13 +347,16 @@ function reveal4() {
 function reveal5() {
 	alert("Marco");
   var x = document.getElementById("Marco");
-  x.style.display = "block"; 
+  x.style.display = "block";
+localStorage.setItem("Marco", "true");  
 }
 function reveal6() {
 	alert("you got Spaghetti");
   var x = document.getElementById("spaghet");
-	x.style.display = "block"; 
-}
+	x.style.display = "block";
+localStorage.setItem("Pasta", "true");
+}	
+
 function reveal7() {
 	alert("you got oshawott");
   var x = document.getElementById("oshawott");
@@ -323,11 +401,13 @@ function reveal15() {
 	alert("you got Mozart");
   var x = document.getElementById("mozart");
   x.style.display = "block";
+  localStorage.setItem("mozart", "true");
 }
 function reveal16() {
 	alert("you got notes");
   var x = document.getElementById("note");
   x.style.display = "block";
+  localStorage.setItem("note", "true");
 }
 function reveal17() {
 	alert("you got oppressive music");
@@ -342,6 +422,26 @@ function reveal18() {
 function reveal19() {
 	alert("you got casino music");
   var x = document.getElementById("casino");
+  x.style.display = "block";
+}
+function reveal20() {
+	alert("you got monke");
+  var x = document.getElementById("monke");
+  x.style.display = "block";
+}
+function reveal21() {
+	alert("you got jungle");
+  var x = document.getElementById("jungle");
+  x.style.display = "block";
+}
+function reveal22() {
+	alert("you got penguin");
+  var x = document.getElementById("peng");
+  x.style.display = "block";
+}
+function reveal23() {
+	alert("you got Antartica");
+  var x = document.getElementById("south");
   x.style.display = "block";
 }
 </script><!--this script allows you to unlock new profile parts as long as theyre in the array-->
