@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>barx points</title>
+</head>
+
+<body style="background-color:#003366;">
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href=#>Main Menu</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="newconcept.html">Main page</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Restaurant1.html">Restaurant</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href=restaurantMenu.html>See menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href=drinksTest.html>Order the drinks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href=room.html>Book a room</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href=Profile.html>your profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href=index.html>login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href=song.html>Karaoke</a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <style>
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif; 
+    box-sizing: border-box;
+}
+body{
+	background: #1e1f21;
+    color: #fff;
+}
+.wrapper{
+    padding: 10px 10%;
+}
+#card-area{
+    padding: 50px 0;
+}
+.box-area{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 40px;
+    margin-top: 50px;
+}
+.box {
+	border-radius: 10px;
+	position: relative;
+	overflow: hidden;
+	box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+}
+.box img{
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+    transition: transform 0.5s;
+}
+.overlay {
+	width: 100%;
+	height: 0;
+	background: linear-gradient(transparent,#1c1c1c 58%);
+	border-radius: 10px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 40px;
+	text-align: center;
+	font-size: 14px;
+	transition: height 0.5s;
+}
+.overlay h3 {
+	font-weight: 500;
+	margin-bottom: 5px;
+	margin-top: 80%;
+	font-family: 'Bebas Neue', sans-serif;
+	font-size: 30px;
+	letter-spacing: 2px;
+}
+.overlay a {
+	margin-top: 10px;
+	color: #262626;
+	text-decoration: none;
+	font-size: 14px;
+	background: #fff;
+	border-radius: 50px;
+	text-align: center;
+	padding: 5px 15px;
+}
+.box:hover img{
+    transform: scale(1.05);
+}
+.box:hover .overlay{
+    height: 50%;
+}
+
+
+    </style>
+
+    <div class="card-area">
+        <div class="wrapper">
+            <div class="box-area">
+                <div class="box">
+                    <img src="scotch.jpg">
+                    <div class="overlay">
+                        <h2>
+                            Singing Scotch
+                        </h2>
+                        <p>€7</p>
+                        <button class="order-btn">Order</button>
+                    </div>
+
+                </div>
+                <div class="box">
+                    <img src="mario.webp">
+                    <div class="overlay">
+                        <h2>
+                            Mario Martini
+                        </h2>
+                        <p>€6</p>
+                        <button class="order-btn">Order</button>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="luigi.jpg">
+                    <div class="overlay">
+                        <h2>
+                            Luigi Lager
+                        </h2>
+                        <p>€7</p>
+                        <button class="order-btn">Order</button>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="pokemon.jpg">
+                    <div class="overlay">
+                        <h2>
+                            The Perkymon
+                        </h2>
+                        <p>€8</p>
+                        <button class="order-btn">Order</button>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="potion.jpg">
+                    <div class="overlay">
+                        <h2>
+                            The Minecraft Potion
+                        </h2>
+                        <p>€10</p>
+                        <button class="order-btn">Order</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cart">
+        <h2>Order Summary</h2>
+        <ul id="cart-list"></ul>
+        <p>Total: €<span id="total-price">0</span></p>
+        <button id="checkout">Checkout</button>
+    </div>
+
+    <script>
+         document.addEventListener("DOMContentLoaded", function() {
+            let cart = [];
+
+            document.querySelectorAll(".order-btn").forEach(button => {
+                button.addEventListener("click", function() {
+                    let box = this.closest(".box");
+                    if (!box) return;
+                    let name = box.querySelector("h2").textContent.trim();
+                    let priceText = box.querySelector("p").textContent.trim();
+                    let price = parseFloat(priceText.replace("€", ""));
+                    
+                    if (!name || isNaN(price)) {
+                        console.error("Error retrieving item details.", { name, price });
+                        return;
+                    }
+                    
+                    cart.push({ name, price });
+                    console.log("Item added to cart:", { name, price }); // Debugging log
+                    updateCart();
+                });
+            });
+
+            function updateCart() {
+                let cartList = document.getElementById("cart-list");
+                let totalPrice = document.getElementById("total-price");
+                cartList.innerHTML = "";
+                let total = 0;
+                
+                cart.forEach(item => {
+                    let li = document.createElement("li");
+                    li.textContent = `${item.name} - €${item.price.toFixed(2)}`;
+                    cartList.appendChild(li);
+                    total += item.price;
+                });
+                
+                totalPrice.textContent = total.toFixed(2);
+            }
+
+            document.getElementById("checkout").addEventListener("click", function() {
+                if (cart.length === 0) {
+                    alert("Your cart is empty!");
+                } else {
+                    alert("Order placed! Total: €" + document.getElementById("total-price").textContent);
+                    cart = [];
+                    updateCart();
+                }
+            });
+        });
+        </script>
+
+
+
+</body>
+
+</html>
