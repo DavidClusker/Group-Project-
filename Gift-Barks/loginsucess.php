@@ -1,9 +1,12 @@
 <?php
-session_start();
-if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
-    header("Location: login.html");
-    exit();
-}
+session_start(); 
+
+// Replace this with the actual username from your login logic
+$_SESSION['username'] = "username"; 
+
+// Redirect to the profile page
+header("Location: Profile.html");
+exit();
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +14,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
+    <title>Login Successful</title>
     <style>
         body {
             display: flex;
@@ -31,10 +34,14 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         h2 {
             color: #333;
         }
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
         .btn {
             display: inline-block;
             padding: 10px 20px;
-            background: #dc3545;
+            background: #28a745;
             color: white;
             text-decoration: none;
             border-radius: 5px;
@@ -42,17 +49,16 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
             margin-top: 15px;
         }
         .btn:hover {
-            background: #c82333;
+            background: #218838;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-     <h2>Welcome to Your Profile</h2>
-    <p>Username: <?php echo $_SESSION['username']; ?></p>
-    <p>Email: <?php echo $_SESSION['email']; ?></p>
-    <a href="logout.php" class="btn">Logout</a>
+    <h2>🎉 Login Successful!</h2>
+    <p>You have successfully loged in please continue.</p>
+    <a href="Profile.html" class="btn">Go to Profile</a>
 </div>
 
 </body>

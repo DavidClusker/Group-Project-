@@ -1,27 +1,9 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "Giftbarks";
+session_start();
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Query to get a random word
-$sql = "SELECT username FROM users ORDER BY RAND() LIMIT 1";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-    echo $row["username"];
+if (isset($_SESSION['username'])) {
+    echo $_SESSION['username']; // Output the username
 } else {
-    echo "No words found";
+    echo "Guest"; // Fallback if no username is set
 }
-
-$conn->close();
 ?>
