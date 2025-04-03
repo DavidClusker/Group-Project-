@@ -1,13 +1,3 @@
-<?php
-session_start(); 
-
-// Replace this with the actual username from your login logic
-$_SESSION['username'] = "username"; 
-
-// Redirect to the profile page
-header("Location: Profile.html");
-exit();
-?>
 
 <!DOCTYPE html>
 <html lang="en">

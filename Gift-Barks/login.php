@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['username'] = $username;
 
             // Redirect to success page
-            header("Location: Profile.html");
+            header("Location: loginsucess.php");
             exit();
         }
          else {
