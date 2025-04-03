@@ -1,10 +1,17 @@
+<?php
+session_start();
+if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
+    header("Location: login.html");
+    exit();
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Successful</title>
+    <title>User Profile</title>
     <style>
         body {
             display: flex;
@@ -24,14 +31,10 @@
         h2 {
             color: #333;
         }
-        p {
-            font-size: 18px;
-            margin: 10px 0;
-        }
         .btn {
             display: inline-block;
             padding: 10px 20px;
-            background: #28a745;
+            background: #dc3545;
             color: white;
             text-decoration: none;
             border-radius: 5px;
@@ -39,16 +42,17 @@
             margin-top: 15px;
         }
         .btn:hover {
-            background: #218838;
+            background: #c82333;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h2>🎉 Login Successful!</h2>
-    <p>You have successfully loged in please continue.</p>
-    <a href="Profile.html" class="btn">Go to Profile</a>
+     <h2>Welcome to Your Profile</h2>
+    <p>Username: <?php echo $_SESSION['username']; ?></p>
+    <p>Email: <?php echo $_SESSION['email']; ?></p>
+    <a href="logout.php" class="btn">Logout</a>
 </div>
 
 </body>

@@ -1,38 +1,56 @@
 <?php
-//Database connection
-//$servername = "localhost";
-//$username = "root";
-//$password = "";
-//$dbname = "barks";
 session_start();
 $conn = new mysqli("localhost", "root", "", "giftbarks");
 
+// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+    // Validate input
+    if (empty($_POST['username']) || empty($_POST['password'])) {
+        die("Username and password are required.");
+    }
 
-    $stmt = $conn->prepare("SELECT id, username, password FROM users WHERE email = ?");
-    $stmt->bind_param("s", $email);
+    $username = trim($_POST['username']);
+    $password = trim($_POST['password']);
+
+    // Prepare statement
+    $stmt = $conn->prepare("SELECT id, username, password FROM users WHERE username = ?");
+    if (!$stmt) {
+        die("Prepare failed: " . $conn->error);
+    }
+
+    $stmt->bind_param("s", $username);
     $stmt->execute();
     $stmt->store_result();
-    
+
     if ($stmt->num_rows > 0) {
         $stmt->bind_result($id, $username, $hashedPassword);
         $stmt->fetch();
 
+        // Verify password
         if (password_verify($password, $hashedPassword)) {
+            // Store user data in session
+            $_SESSION['user_id'] = $id;
             $_SESSION['username'] = $username;
-            echo "Login successful! <a href='welcome.php'>Go to Dashboard</a>";
-        } else {
-            echo "Invalid password.";
+
+            // Redirect to success page
+            header("Location: loginsucess.php");
+            exit();
         }
+         else {
+           
+            echo "Invalid password.";
+        } 
+        
     } else {
-        echo "No account found with this email.";
+        echo "No account found with this username.";
     }
+
+    $stmt->close();
 }
+
 $conn->close();
 ?>
