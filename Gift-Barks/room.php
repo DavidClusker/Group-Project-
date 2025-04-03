@@ -191,7 +191,7 @@
 		</nav>
     <div class="cards-container">
     <?php
-     $sql2 ="SELECT * FROM rooms WHERE is_available = 1";
+     $sql2 ="SELECT * FROM rooms WHERE is_avaliable = 1";
 
      $res2 = mysqli_query($conn, $sql2);
 
