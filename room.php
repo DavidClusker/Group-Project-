@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Restaurant 1</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+
+        }
+
+
+        .box {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 10px;
+
+        }
+
+        .top {
+            height: 30px;
+
+        }
+
+
+        .box {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 10px;
+            padding: 15px;
+            background: #fff;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .card {
+            position: relative;
+            width: 600px;
+            height: 370px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            border-radius: 20px;
+            overflow: visible;
+            flex-direction: row;
+        }
+        h1{
+            text-align: center;
+            color: #706d6d;
+        }
+
+        .card1 {
+            background: linear-gradient(135deg, #4a6f28, #80bfff);
+        }
+
+        .card2 {
+            background: linear-gradient(135deg, #404622, #C2CFA1);
+        }
+
+        .card3 {
+            background: linear-gradient(135deg, #ff48c4, #2bd1fc);
+        }
+
+        .card4 {
+            background: linear-gradient(135deg, #5a3d2b, #ffecb4);
+        }
+        .card5{
+            background:linear-gradient(135deg, #151515, #706d6d )
+        }
+        .card6{
+            background:linear-gradient(135deg, #f09001, #d1c406)
+        }
+
+
+        .card img {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%);
+            height: 350px;
+            width: 300px;
+            transition: all 0.5s;
+        }
+
+        .card:hover img {
+            left: 80%;
+            opacity: 1;
+            height: 400px;
+            width:350px;
+            visibility: visible;
+        }
+        .card:hover .content {
+            left: 50%;
+            opacity: 1;
+            width:50%;
+            
+            visibility: visible;
+        }
+        .card .content {
+            opacity:0;
+            visibility: hidden;
+            left:70%;
+
+            width:50%;
+            padding:20px 20px 20px 40px;
+            transition:0.5s;
+         
+
+        }
+
+        .content h2 {
+            color: #000000;
+            text-transform: uppercase;
+            font-size: 2.2em;
+            line-height: 1em;
+        }
+
+        .content p {
+            color: #000000;
+        }
+
+        .content a {
+            position: relative;
+            display: inline-block;
+            color: #111;
+            padding: 7px 15px;
+            border-radius: 5px;
+            background: #fff;
+            margin-top: 5px;
+            text-decoration: none;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
+            margin:auto;
+            margin-top: 70px;
+            margin-bottom: 70px;
+        }
+        .cards-container .h1{
+            justify-content: center; 
+            position: relative;
+
+        }
+    </style>
+</head>
+
+<body style="background-color:#003366;">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href=#>Main Menu</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="newconcept.html">Main page</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Restaurant1.html">Restaurant</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="restaurantMenu.html">See menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href=drinks.html>Order the drinks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href=room.html>Book a room</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href=Profile.html>your profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href=index.html>login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href=song.html>Karaoke</a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+<h1>Games</h1>
+    <div class="cards-container">
+        <div class="card card1">
+            <div class="content">
+                <h2>Minecraft</h2>
+                <p>This karaoke game will contain sound effects from the game, such as, the sheep, zombie and villager,
+                    etc.
+                    The room will be themed in a minecraft themed atmosphere.
+                    The room will also have a minigame to correctly guess the crafting recipes of any kind of
+                    block/item.
+                </p>
+                <a href="#">Book Room:</a>
+
+
+            </div>
+            <img src="images/minecraft.png">
+        </div>
+
+        <div class="card card2">
+            <div class="content">
+                <h2>Call Of Duty</h2>
+                <p>This Karaoke game will contain iconic lines from all of the call of duty games, all the way
+                    from World At War upto the newest game in the franchise, Black Ops 6.
+                    This room will include as well, guns that you need to guess there name and characters as well!
+
+                </p>
+                <a href="#">Book Room</a>
+            </div>
+
+            <img src="images/price.png">
+        </div>
+    </div>
+    <h1>Karaoke</h1>
+    <div class="cards-container">
+        <div class="card card3">
+            <div class="content">
+                <h2>80s</h2>
+                <p>This Karaoke game will contain iconic songs from the 80s and gotta continue singing the lyrics until
+                    the music in
+                    the background stops.
+                    This includes movies from the 80s where you need to guess the character speaking a famous line.
+                </p>
+                <a href="#">Book Room</a>
+            </div>
+
+            <img src="images/80s.png">
+        </div>
+        <div class="card card4">
+            <div class="content">
+                <h2>70s</h2>
+                <p>This Karaoke game will contain iconic songs from the 70s and gotta continue singing the lyrics until
+                    the music in
+                    the background stops.
+                    This includes movies from the 80s where you need to guess the character speaking a famous line.
+                </p>
+                <a href="#">Book Room</a>
+            </div>
+
+            <img src="images/70s.png">
+        </div>
+    </div>
+<h1>Rythme Games</h1>
+    <div class="cards-container">
+        <div class="card card5">
+            <div class="content">
+                <h2>Guitar Hero</h2>
+                <p>This Karaoke game is based of the popular Rythme Game, Guitar Hero, making the players play the guitar in the exact rythme 
+                    the game is showing.
+                    The music you select varies from many popular guitar songs.
+                </p>
+                <a href="#">Book Room</a>
+            </div>
+
+            <img src="images/GH.png">
+        </div>
+        <div class="card card6">
+            <div class="content">
+                <h2>Lets Dance</h2>
+                <p>This Karaoke game allows the players to dance and mimic what they are seeing on the display, the more accurate you are to mimic
+                    the dancer, the more points you score!
+                </p>
+                <a href="#">Book Room</a>
+            </div>
+
+            <img src="images/LD.png">
+        </div>
+    </div>
+    
+
+
+
+</body>
+
+</html>
