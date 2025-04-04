@@ -10,8 +10,8 @@
 		
 		
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="styleSheet" href="bootstrap.min.css">
-		<link rel="stylesheet" href="main.css">
+    <link rel="styleSheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/main.css">
 		<style>
 
             .email-button {
@@ -68,7 +68,7 @@
             
             <a class="nav-link" href=room.php>Book a Room</a>
             
-            <a class="nav-link" href=Profile.html>Your Profile</a>
+            <a class="nav-link" href=Profile.html><span id="username"></span>'s Profile</a>
             
             <a class="nav-link" href=index.html>Login</a>
             
@@ -109,7 +109,15 @@
 
 
         <script>
-            
+         function fetchWord() {
+            fetch('NeoProfile.php')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('username').textContent = data;
+                })
+                .catch(error => console.error('Error fetching word:', error));
+        }
+        fetchWord();   
            
         </script>
     </body>
