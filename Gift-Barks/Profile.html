@@ -28,6 +28,8 @@
 				
 				<a class="nav-link" href=room.php>Book a Room</a>
 				
+				<a class="nav-link" href=Profile.html>Your Profile</a>
+				
 				<a class="nav-link" href=index.html>Login</a>
 				
 				<a class="nav-link" href=song.html>Karaoke</a>
@@ -76,10 +78,10 @@
 	
 	</h1>
 	<div>
-	<button class="button2" onclick="setImage('Default')">default profile</button><!--button enabled by default featuring the new guinea singing dog-->
-	<button class="button2" onclick="setImage('Oshawott')">oshawott profile</button><!--https://local.pokemon.jp/en/-->
+	<button class="button2" onclick="document.getElementById('profImage').src='images/singer.jpg'">default profile</button><!--button enabled by default featuring the new guinea singing dog-->
+	<button class="button2" onclick="document.getElementById('profImage').src='images/mijumaru.png'">oshawott profile</button><!--https://local.pokemon.jp/en/-->
 	<div1 id="Quag"><!--This div allows elements to be absent until called by the randomGift function-->
-	<button  class="button2" onclick="setImage('Quag')">Quag profile</button>
+	<button  class="button2" onclick="document.getElementById('profImage').src='images/quag.png'">Quag profile</button>
 	</div1>
 	<div1 id="doggo">
 	<button  class="button2" onclick="document.getElementById('profImage').src='images/doggo.png'" >doggo profile</button>
@@ -88,13 +90,13 @@
 	<button  class="button2" onclick="document.getElementById('profImage').src='images/lapras.png'">lapras profile</button>
 	</div1>
 	<div1 id="snoc">
-	<button  class="button2" onclick="setImage('Snoc')">HaryPoter? profile</button>
+	<button  class="button2" onclick="document.getElementById('profImage').src='images/snoc.jpg'">HaryPoter? profile</button>
 	</div1>
 	<div1 id="Marco">
-	<button  class="button2" onclick="setImage('Marco')">Marco profile</button>
+	<button  class="button2" onclick="document.getElementById('profImage').src='images/Marco.png'">Marco profile</button>
 	</div1>
 	<div1 id="mozart">
-	<button  class="button2" onclick="setImage('Mozart')">Mozart profile</button>
+	<button  class="button2" onclick="document.getElementById('profImage').src='images/mozart.jpg'">Mozart profile</button>
 	</div1>
 	<div1 id="monke">
 	<button  class="button2" onclick="document.getElementById('profImage').src='images/monke.png'">Monke profile</button>
@@ -103,7 +105,7 @@
 	<button  class="button2" onclick="document.getElementById('profImage').src='images/peng.png'">peng profile</button>
 	</div1>
 	<div1 id="gold1">
-	<button  class="button2" onclick="setImage('Gold')">gold profile</button>
+	<button  class="button2" onclick="document.getElementById('profImage').src='images/treasure.jpg'">gold profile</button>
 	</div1>
 	</div>
 	<button class="button3" onclick="Defaultset()">default</button><!--A background setting button-->
@@ -192,38 +194,7 @@ Music error, no refunds
 	<h3>Use your points to obtain a random gift</h3>
 	<button id="lock-btn">Remove unlocks :'[</button>
 	<script>
-	const ProfileTrack = {
-      Default: "images/singer.jpg",
-      Oshawott: "images/mijumaru.png",
-      Quag: "images/quag.png",
-	  Mozart:"images/mozart.jpg",
-	  Marco:"images/Marco.png",
-	  Snoc:"images/snoc.jpg",
-	  Gold:"images/treasure.jpg",
-	  
-    };
-	const ProfileMake = localStorage.getItem("profImage2") || "Default";
-	document.getElementById("profImage").src = ProfileTrack[ProfileMake];
-	    function setImage(profile) {
-      document.getElementById("profImage").src = ProfileTrack[profile];
-      localStorage.setItem("profImage2", profile);
-    }
-	const ProfileTrack = {
-      Default: "images/singer.jpg",
-      Oshawott: "images/mijumaru.png",
-      Quag: "images/quag.png",
-	  Mozart:"images/mozart.jpg",
-	  Marco:"images/Marco.png",
-	  Snoc:"images/snoc.jpg",
-	  Gold:"images/treasure.jpg",
-	  
-    };
-	const ProfileMake = localStorage.getItem("profImage2") || "Default";
-	document.getElementById("profImage").src = ProfileTrack[ProfileMake];
-	    function setImage(profile) {
-      document.getElementById("profImage").src = ProfileTrack[profile];
-      localStorage.setItem("profImage2", profile);
-    }
+	
 
 const exArray = [reveal1,reveal2,reveal5,reveal6,reveal11,reveal12,reveal13,reveal14,reveal15,reveal16,reveal17,reveal19];//add new functions here to add new functions, this controls probability
 function changeTextP() { 
