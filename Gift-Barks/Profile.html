@@ -208,6 +208,22 @@ Music error, no refunds
       document.getElementById("profImage").src = ProfileTrack[profile];
       localStorage.setItem("profImage2", profile);
     }
+	const ProfileTrack = {
+      Default: "images/singer.jpg",
+      Oshawott: "images/mijumaru.png",
+      Quag: "images/quag.png",
+	  Mozart:"images/mozart.jpg",
+	  Marco:"images/Marco.png",
+	  Snoc:"images/snoc.jpg",
+	  Gold:"images/treasure.jpg",
+	  
+    };
+	const ProfileMake = localStorage.getItem("profImage2") || "Default";
+	document.getElementById("profImage").src = ProfileTrack[ProfileMake];
+	    function setImage(profile) {
+      document.getElementById("profImage").src = ProfileTrack[profile];
+      localStorage.setItem("profImage2", profile);
+    }
 
 const exArray = [reveal1,reveal2,reveal5,reveal6,reveal11,reveal12,reveal13,reveal14,reveal15,reveal16,reveal17,reveal19];//add new functions here to add new functions, this controls probability
 function changeTextP() { 
