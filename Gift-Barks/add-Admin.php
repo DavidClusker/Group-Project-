@@ -6,9 +6,6 @@ include('partial/menu.php');
     <div class="wrapper text-center">
         <h1>Add Admin</h1>
         <br />
-        <!-- Button to add admin -->
-        <a href="addAdmin.php" class="btn-primary">Add Admin</a>
-        <!-- Button to delete admin -->
         <br />
         <form action="" method="POST" class="text-center">
             <table class="tbl-30">
