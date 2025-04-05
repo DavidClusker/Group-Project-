@@ -8,7 +8,7 @@ if (isset($_GET['id'])) {
 } else {
     // Redirect to manage-admin.php if no ID is provided
     $_SESSION['user-not-found'] = "<div class='error'>Invalid admin ID.</div>";
-    header('location:' . SITEURL . 'admin/manage-Admin.php');
+    header('location:' . SITEURL . 'manage-Admin.php');
     exit();
 }
 ?>

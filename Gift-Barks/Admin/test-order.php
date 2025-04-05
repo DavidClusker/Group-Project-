@@ -14,14 +14,14 @@ $res = mysqli_query($conn, $sql);
 if ($res == true) {
     // Test order created successfully
     $_SESSION['add'] = "<div class='success'>Test order created successfully.</div>";
-    header('location:' . SITEURL . 'admin/manage-Orders.php');
+    header('location:' . SITEURL . 'Admin/manage-Orders.php'); // Corrected path
     exit();
 } else {
     // Failed to create test order
     $_SESSION['add'] = "<div class='error'>Failed to create test order.</div>";
-    header('location:' . SITEURL . 'admin/manage-Orders.php');
+    header('location:' . SITEURL . 'Admin/manage-Orders.php'); // Corrected path
     exit();
 }
 
-include('partial/foot.php');
+
 ?>

@@ -80,5 +80,3 @@ else{
 </table>
 </div>
 </div>
-
-<?php include('partial/foot.php')?>

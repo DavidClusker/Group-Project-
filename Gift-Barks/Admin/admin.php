@@ -11,8 +11,6 @@
                 <div class="wrapper">
                     <li><a href="admin.php">Home</a></li>
                     <li><a href="manage-Admin.php">Admin</a></li>
-                    <li><a href="manage-category.php">Category</a></li>
-                    <li><a href="manage-drinks.php">Drinks</a></li>
                     <li><a href="manage-Orders.php">Order</a></li>
                 </div>
             </ul>
@@ -37,7 +35,7 @@
         <!--Hub section ends-->
 
         <!--Footer section starts-->
-        <?php include('partial/foot.php')?>
+        
         <!--Footer section ends-->
     </body>
 </html>

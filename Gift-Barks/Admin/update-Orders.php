@@ -107,5 +107,3 @@
         ?>
 
 
-
-<?php include('partial/foot.php');?>

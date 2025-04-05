@@ -80,6 +80,3 @@ include('partial/menu.php');?>
     }
 
     ?>
-<?php
-include('partial/foot.php');
-?>

@@ -63,8 +63,8 @@ include('partial/menu.php'); // Include the navigation menu
                             <td><?php echo $username; ?></td> <!-- Display admin username -->
                             <td>
                                 <!-- Action buttons for each admin -->
-                                <a href="admin/password-admin.php?id=<?php echo $id; ?>" class="btn-primary">Change Password</a>
-                                <a href="admin/delete-admin.php?id=<?php echo $id; ?>" class="btn-secondary">Delete Admin</a>
+                                <a href="password-admin.php?id=<?php echo $id; ?>" class="btn-primary">Change Password</a>
+                                <a href="delete-admin.php?id=<?php echo $id; ?>" class="btn-secondary">Delete Admin</a>
                                 <a href="update-admin.php?id=<?php echo $id; ?>" class="btn-tertiary">Update Admin</a>
                             </td>
                         </tr>
@@ -90,5 +90,3 @@ include('partial/menu.php'); // Include the navigation menu
         </table>
     </div>
 </div>
-
-<?php include('partial/foot.php'); // Include the footer ?>
