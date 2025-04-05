@@ -103,7 +103,7 @@
 	<button  class="button2" onclick="setImage('Gold')">gold profile</button>
 	</div1>
 	</div>
-	<button class="button3" onclick="setBackground('images/default.jpg')">default</button><!--A background setting button-->
+	<button class="button3" onclick="setBackground('images/giftbarx.png')">default</button><!--A background setting button-->
 	<button class="button3" onclick="setBackground('images/otter.jpg')">otter</button>
 	<div1 id="karaoke">
 	<button class="button3" onclick="setBackground('images/mike.jpg')">karaoke</button>
@@ -132,7 +132,7 @@
 	<div1 id="gold">
 	<button class="button3" onclick="setBackground('images/1000.jpg')">gold</button>
 	</div1>
-	<button class="button4" onclick="changeTextR()">red text</button><!--changes text colour red by default-->
+	<button class="button4" onclick="changeColour('red')">red text</button><!--changes text colour red by default-->
 	<button class="button4" onclick="changeTextB()">cyan text</button>
 	<div1 id="purple">
 	<button class="button4" onclick="changeTextP()">purple text</button>
@@ -229,7 +229,15 @@ Music error, no refunds
       profileBack.style.backgroundImage = `url(${imageUrl})`;
       localStorage.setItem('bgImage', imageUrl);
     }
-
+	const userColour = document.getElementById("name");
+	const savedColour = localStorage.getItem("userColour");
+	if(savedColour){
+	 userColour.style.color = userColour;
+	 }
+	 function changeColour(color) {
+      userColour.style.color = color;
+      localStorage.setItem("savedColour", color); 
+    }
 const exArray = [reveal1,reveal2,reveal5,reveal6,reveal11,reveal12,reveal13,reveal14,reveal15,reveal16,reveal17,reveal19];//add new functions here to add new functions, this controls probability
 function changeTextP() { 
   document.getElementById("name").style.color = '#ba0af0';<!--colour change javascript-->
@@ -465,7 +473,7 @@ function reveal11() {
 	alert("you got purple text");
   var x = document.getElementById("purple");
   x.style.display = "block";
-  localStorage.setItem("green", "true");
+  localStorage.setItem("purple", "true");
 }
 function reveal12() {
 	alert("you got green text");
