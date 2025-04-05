@@ -133,12 +133,12 @@
 	<button class="button3" onclick="setBackground('images/1000.jpg')">gold</button>
 	</div1>
 	<button class="button4" onclick="changeColour('red')">red text</button><!--changes text colour red by default-->
-	<button class="button4" onclick="changeTextB()">cyan text</button>
+	<button class="button4" onclick="changeColour('cyan')">cyan text</button>
 	<div1 id="purple">
-	<button class="button4" onclick="changeTextP()">purple text</button>
+	<button class="button4" onclick="changeColour('#ba0af0')">purple text</button>
 	</div1>
 	<div1 id="green" float:left;>
-	<button class="button4" onclick="changeTextG()">green text</button>
+	<button class="button4" onclick="changeColour('#38f702')">green text</button>
 	</div1>
 	<div1 id="calm">
 	 <mark>calm music</mark>
@@ -189,7 +189,7 @@ Music error, no refunds
 	<h3>Use your points to obtain a random gift</h3>
 	<button id="lock-btn">Remove unlocks :'[</button>
 	<script>
-	const ProfileTrack = {
+	const ProfileTrack = {//Keeps a list of profile images
       Default: "images/singer.jpg",
       Oshawott: "images/mijumaru.png",
       Quag: "images/quag.png",
@@ -199,7 +199,7 @@ Music error, no refunds
 	  Gold:"images/treasure.jpg"
 	  
     };
-	const ProfileMake = localStorage.getItem("profImage2") || "Default";
+	const ProfileMake = localStorage.getItem("profImage2") || "Default";//stores the profile image
 	document.getElementById("profImage").src = ProfileTrack[ProfileMake];
 	    function setImage(profile) {
       document.getElementById("profImage").src = ProfileTrack[profile];
@@ -232,11 +232,11 @@ Music error, no refunds
 	const userColour = document.getElementById("name");
 	const savedColour = localStorage.getItem("userColour");
 	if(savedColour){
-	 userColour.style.color = userColour;
+	 userColour.style.color = savedColour;
 	 }
 	 function changeColour(color) {
       userColour.style.color = color;
-      localStorage.setItem("savedColour", color); 
+      localStorage.setItem("userColour", color); 
     }
 const exArray = [reveal1,reveal2,reveal5,reveal6,reveal11,reveal12,reveal13,reveal14,reveal15,reveal16,reveal17,reveal19];//add new functions here to add new functions, this controls probability
 function changeTextP() { 
