@@ -103,25 +103,25 @@
 	<button  class="button2" onclick="setImage('Gold')">gold profile</button>
 	</div1>
 	</div>
-	<button class="button3" onclick="Defaultset()">default</button><!--A background setting button-->
-	<button class="button3" onclick="Otterset()">otter</button>
+	<button class="button3" onclick="setBackground('images/default.jpg')">default</button><!--A background setting button-->
+	<button class="button3" onclick="setBackground('images/otter.jpg')">otter</button>
 	<div1 id="karaoke">
-	<button class="button3" onclick="Mikeset()">karaoke</button>
+	<button class="button3" onclick="setBackground('images/mike.jpg')">karaoke</button>
 	</div1>
 	<div1 id="fuji">
 	<button class="button3" onclick="Fujiset()">Fuji</button>
 	</div1>
 	<div1 id="retro">
-	<button class="button3" onclick="Retroset()">Retro</button>
+	<button class="button3" onclick="setBackground('images/retro.png')">Retro</button>
 	</div1>
 	<div1 id="spaghet">
-	<button class="button3" onclick="Spaghetset()">Spaghet</button>
+	<button class="button3" onclick="setBackground('images/spaghet.jpg')">Spaghet</button>
 	</div1>
 	<div1 id="beach">
 	<button class="button3" onclick="Beachset()">beach</button>
 	</div1>
 	<div1 id="note">
-	<button class="button3" onclick="Noteset()">notes</button>
+	<button class="button3" onclick="setBackground('images/notes.jpg')">notes</button>
 	</div1>
 	<div1 id="jungle">
 	<button class="button3" onclick="Jungleset()">jungle</button>
@@ -130,7 +130,7 @@
 	<button class="button3" onclick="Southset()">Antartica</button>
 	</div1>
 	<div1 id="gold">
-	<button class="button3" onclick="Goldset()">gold</button>
+	<button class="button3" onclick="setBackground('images/1000.jpg')">gold</button>
 	</div1>
 	<button class="button4" onclick="changeTextR()">red text</button><!--changes text colour red by default-->
 	<button class="button4" onclick="changeTextB()">cyan text</button>
@@ -220,6 +220,15 @@ Music error, no refunds
       document.getElementById("profileBack").src = BackTrack[back];
       localStorage.setItem("backImage2", back);
     }*/
+	const profileBack = document.getElementById('profileBack');
+	const saveBack = localStorage.getItem('bgImage');
+    if (saveBack) {
+      profileBack.style.backgroundImage = `url(${saveBack})`;
+    }//controls the background image and allows it to remain after page load
+	function setBackground(imageUrl) {
+      profileBack.style.backgroundImage = `url(${imageUrl})`;
+      localStorage.setItem('bgImage', imageUrl);
+    }
 
 const exArray = [reveal1,reveal2,reveal5,reveal6,reveal11,reveal12,reveal13,reveal14,reveal15,reveal16,reveal17,reveal19];//add new functions here to add new functions, this controls probability
 function changeTextP() { 
