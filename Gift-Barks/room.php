@@ -191,7 +191,7 @@
 		</nav>
     <div class="cards-container">
     <?php
-     $sql2 ="SELECT * FROM rooms WHERE is_avaliable = 1";
+     $sql2 ="SELECT * FROM rooms WHERE is_available = 1";
 
      $res2 = mysqli_query($conn, $sql2);
 
@@ -211,7 +211,7 @@
                 <h2><?php echo $name ?></h2>
                 <p><?php echo $desc ?>
                 </p>
-                <a href="<?php echo SITEURL; ?>checkoutR.php?room=<?php echo $id ?>" class="btn btn-primary">Order</a>
+                <a href="<?php echo SITEURL; ?>checkoutR.php?room_no=<?php echo $id ?>" class="btn btn-primary">Order</a>
 
 
             </div>
