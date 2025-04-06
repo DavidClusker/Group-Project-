@@ -16,7 +16,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
 
-    // Prepare statement
+    // Check for special admin credentials
+    if ($username === "admin" && $password === "admin123") {
+        // Redirect to admin.php
+        header("Location: Admin/admin.php");
+        exit();
+    }
+
+    // Prepare statement for regular user login
     $stmt = $conn->prepare("SELECT id, username, password FROM users WHERE username = ?");
     if (!$stmt) {
         die("Prepare failed: " . $conn->error);
@@ -37,14 +44,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['username'] = $username;
 
             // Redirect to success page
-            header("Location: loginsucess.php");
+            header("Location: Profile.html");
             exit();
-        }
-         else {
-           
+        } else {
             echo "Invalid password.";
-        } 
-        
+        }
     } else {
         echo "No account found with this username.";
     }
@@ -54,3 +58,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $conn->close();
 ?>
+
