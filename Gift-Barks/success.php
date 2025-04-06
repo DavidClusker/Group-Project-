@@ -47,7 +47,7 @@
 <div class="container">
     <h2>🎉 Registration Successful!</h2>
     <p>Your account has been created successfully.</p>
-    <a href="Profile.html" class="btn">Go to Profile</a>
+    <a href="Profile.php" class="btn">Go to Profile</a>
 </div>
 
 </body>

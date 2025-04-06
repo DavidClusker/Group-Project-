@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['username'] = $username;
 
             // Redirect to success page
-            header("Location: Profile.html");
+            header("Location: Profile.php");
             exit();
         } else {
             echo "Invalid password.";
@@ -58,4 +58,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $conn->close();
 ?>
-

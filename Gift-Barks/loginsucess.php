@@ -48,7 +48,7 @@
 <div class="container">
     <h2>🎉 Login Successful!</h2>
     <p>You have successfully loged in please continue.</p>
-    <a href="Profile.html" class="btn">Go to Profile</a>
+    <a href="Profile.php" class="btn">Go to Profile</a>
 </div>
 
 </body>

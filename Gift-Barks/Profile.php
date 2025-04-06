@@ -1,0 +1,543 @@
+<?php
+session_start();
+
+// Database connection
+$conn = new mysqli("localhost", "root", "", "giftbarks");
+
+// Check connection
+if ($conn->connect_error) {
+    die("Database connection failed: " . $conn->connect_error);
+}
+
+// Initialize variables
+$user_points = 0;
+$username = "Guest";
+
+// Check if the user is logged in
+if (isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+
+    // Fetch the user's points and username
+    $sql = "SELECT points, username FROM users WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+
+    if ($stmt) {
+        $stmt->bind_param("i", $user_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result && $result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $user_points = htmlspecialchars($row['points']); // Safely display points
+            $username = htmlspecialchars($row['username']); // Safely display username
+        }
+
+        $stmt->close();
+    }
+}
+
+// Close the database connection
+$conn->close();
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GiftBarx: Your Profile and Wild Prizes</title>
+    <link rel="stylesheet" href="css/Profile.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <img class="logo" src="images/neogiftbarx.png" alt="Logo" width="50" height="50">
+            <a class="navbar-brand" href="#">GiftBarx</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="nav nav-pills nav-fill">
+                    <a class="nav-link" href="drinks.html">Order the Drinks</a>
+                    <a class="nav-link" href="room.php">Book a Room</a>
+                    <a class="nav-link" href="profile.php">Your Profile</a>
+                    <a class="nav-link" href="index.html">Login</a>
+                    <a class="nav-link" href="song.html">Karaoke</a>
+                    <a class="nav-link" href="apply.html">Apply</a>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <h1 style="text-align:center;">Your Profile</h1>
+
+    <!-- Display current points dynamically -->
+    <div id="myPoints"><?php echo $user_points; ?></div>
+    <button onclick="makePoints()">Buy points</button>
+    <button class="button1" onclick="deductPoints();">Obtain Lootbox for 10 Points</button>
+
+    <!-- Display username dynamically -->
+    <h1 id="name" style="color:#07fade;">
+        Welcome, <span id="username"><?php echo $username; ?></span>
+    </h1>
+
+    <!-- Profile Image and Background -->
+    <div id="profileBack">
+	<img id="profImage" src="images/singer.jpg" style="height:100px " width="width:100px" alt="profile image"><!--profile image area-->
+	
+	<h1 id="name"style="color:#07fade;" 
+	<h1><span id="username"></span></h1>
+    
+	<center>
+	
+	
+	</h1>
+	<div>
+	<button class="button2" onclick="setImage('Default')">default profile</button><!--button enabled by default featuring the new guinea singing dog-->
+	<button class="button2" onclick="setImage('Oshawott')">oshawott profile</button><!--https://local.pokemon.jp/en/-->
+	<div1 id="Quag"><!--This div allows elements to be absent until called by the randomGift function-->
+	<button  class="button2" onclick="setImage('Quag')">Quag profile</button>
+	</div1>
+	<div1 id="doggo">
+	<button  class="button2" onclick="document.getElementById('profImage').src='images/doggo.png'" >doggo profile</button>
+	</div1>
+	<div1 id="oshawott">
+	<button  class="button2" onclick="document.getElementById('profImage').src='images/lapras.png'">lapras profile</button>
+	</div1>
+	<div1 id="snoc">
+	<button  class="button2" onclick="setImage('Snoc')">HaryPoter? profile</button>
+	</div1>
+	<div1 id="Marco">
+	<button  class="button2" onclick="setImage('Marco')">Marco profile</button>
+	</div1>
+	<div1 id="mozart">
+	<button  class="button2" onclick="setImage('Mozart')">Mozart profile</button>
+	</div1>
+	<div1 id="monke">
+	<button  class="button2" onclick="document.getElementById('profImage').src='images/monke.png'">Monke profile</button>
+	</div1>
+	<div1 id="peng">
+	<button  class="button2" onclick="document.getElementById('profImage').src='images/peng.png'">peng profile</button>
+	</div1>
+	<div1 id="gold1">
+	<button  class="button2" onclick="setImage('Gold')">gold profile</button>
+	</div1>
+	</div>
+	<button class="button3" onclick="setBackground('images/giftbarx.png')">default</button><!--A background setting button-->
+	<button class="button3" onclick="setBackground('images/otter.jpg')">otter</button>
+	<div1 id="karaoke">
+	<button class="button3" onclick="setBackground('images/mike.jpg')">karaoke</button>
+	</div1>
+	<div1 id="fuji">
+	<button class="button3" onclick="Fujiset()">Fuji</button>
+	</div1>
+	<div1 id="retro">
+	<button class="button3" onclick="setBackground('images/retro.png')">Retro</button>
+	</div1>
+	<div1 id="spaghet">
+	<button class="button3" onclick="setBackground('images/spaghet.jpg')">Spaghet</button>
+	</div1>
+	<div1 id="beach">
+	<button class="button3" onclick="Beachset()">beach</button>
+	</div1>
+	<div1 id="note">
+	<button class="button3" onclick="setBackground('images/note.jpg')">notes</button>
+	</div1>
+	<div1 id="jungle">
+	<button class="button3" onclick="Jungleset()">jungle</button>
+	</div1>
+	<div1 id="south">
+	<button class="button3" onclick="Southset()">Antartica</button>
+	</div1>
+	<div1 id="gold">
+	<button class="button3" onclick="setBackground('images/1000.jpg')">gold</button>
+	</div1>
+	<button class="button4" onclick="changeColour('red')">red text</button><!--changes text colour red by default-->
+	<button class="button4" onclick="changeColour('cyan')">cyan text</button>
+	<div1 id="purple">
+	<button class="button4" onclick="changeColour('#ba0af0')">purple text</button>
+	</div1>
+	<div1 id="green" float:left;>
+	<button class="button4" onclick="changeColour('#38f702')">green text</button>
+	</div1>
+	<div1 id="calm">
+	 <mark>calm music</mark>
+	<audio controls loop style="width: 100px; height: 25px">
+  <source src="images/calm.mp3" type="audio/mpeg"><!--A music selection-->
+Music error, no refunds
+</audio>
+</div1>
+<div1 id="funk">
+	 <mark>funk music</mark>
+	<audio controls loop style="width: 100px; height: 25px">
+  <source src="images/funk.mp3" type="audio/mpeg">
+Music error, no refunds
+</audio>
+</div1>
+<div1 id="glory">
+	<mark>oppressive music</mark>
+	<audio controls loop style="width: 100px; height: 25px">
+  <source src="images/Glory to Arstotzka (Main Theme).mp3" type="audio/mpeg">
+Music error, no refunds
+</audio>
+</div1>
+<div1 id="town">
+	 <mark>town </mark>
+	<audio controls loop style="width: 100px; height: 25px">
+  <source src="images/Accumula town.mp3" type="audio/mpeg">
+Music error, no refunds
+</audio>
+</div1>
+<div1 id="casino">
+	 <mark>  casino music</mark>
+	<audio controls loop style="width: 100px; height: 25px ">
+  <source src="images/Casino.mp3" type="audio/mpeg">
+Music error, no refunds
+</audio>
+</div1>
+
+	<!--<input type="text" id="profileName" value="">
+	<button onclick="setName()">set name</button>-->
+	
+</div>
+	</div>
+
+
+    <!-- Add PHP Session Message -->
+    <?php if (isset($_SESSION['message'])): ?>
+        <p><?php echo htmlspecialchars($_SESSION['message']); ?></p>
+        <?php unset($_SESSION['message']); // Clear the message after displaying it ?>
+    <?php endif; ?>
+	<div>
+	<button  onclick="goldenGift()" class="au">1000 point background</button>
+	<button  onclick="goldenGift1()" class="au">1000 point profile</button>
+	</div>
+	<button id="lock-btn">Remove unlocks :'[</button>
+    <script>
+		const ProfileTrack = {//Keeps a list of profile images
+      Default: "images/singer.jpg",
+      Oshawott: "images/mijumaru.png",
+      Quag: "images/quag.png",
+	  Mozart:"images/mozart.jpg",
+	  Marco:"images/Marco.png",
+	  Snoc:"images/snoc.jpg",
+	  Gold:"images/treasure.jpg"
+	  
+    };
+	const ProfileMake = localStorage.getItem("profImage2") || "Default";//stores the profile image
+	document.getElementById("profImage").src = ProfileTrack[ProfileMake];
+	    function setImage(profile) {
+      document.getElementById("profImage").src = ProfileTrack[profile];
+      localStorage.setItem("profImage2", profile);
+    }
+	const profileBack = document.getElementById('profileBack');
+	const saveBack = localStorage.getItem('bgImage');
+    if (saveBack) {
+      profileBack.style.backgroundImage = `url(${saveBack})`;
+    }//controls the background image and allows it to remain after page load
+	function setBackground(imageUrl) {
+      profileBack.style.backgroundImage = `url(${imageUrl})`;
+      localStorage.setItem('bgImage', imageUrl);
+    }
+	const userColour = document.getElementById("name");
+	const savedColour = localStorage.getItem("userColour");
+	if(savedColour){
+	 userColour.style.color = savedColour;
+	 }
+	 function changeColour(color) {
+      userColour.style.color = color;
+      localStorage.setItem("userColour", color); 
+    }
+	if (localStorage.getItem("Quagsire") == "true") {
+                Quag.style.display = "block";
+            }
+if (localStorage.getItem("Ka") == "true") {
+                karaoke.style.display = "block";
+            }
+if (localStorage.getItem("Gold1") == "true") {
+                gold1.style.display = "block";
+            }
+if (localStorage.getItem("Gold") == "true") {
+                gold.style.display = "block";
+            }
+if (localStorage.getItem("Pasta") == "true") {
+                spaghet.style.display = "block";
+            }
+if (localStorage.getItem("mozart") == "true") {
+                mozart.style.display = "block";
+            }
+if (localStorage.getItem("Marco") == "true") {
+                Marco.style.display = "block";
+            }
+if (localStorage.getItem("note") == "true") {
+                note.style.display = "block";
+            }
+if (localStorage.getItem("green") == "true") {
+                green.style.display = "block";
+            }
+if (localStorage.getItem("casino") == "true") {
+                casino.style.display = "block";
+            }
+if (localStorage.getItem("glory") == "true") {
+                glory.style.display = "block";
+            }
+if (localStorage.getItem("purple") == "true") {
+                purple.style.display = "block";
+            }
+if (localStorage.getItem("snoc") == "true") {
+                snoc.style.display = "block";
+            }
+if (localStorage.getItem("retro") == "true") {
+                retro.style.display = "block";
+            }			
+        // Update points dynamically in JavaScript
+        let points = <?php echo $user_points; ?>;
+
+        function pointUpdate() {
+            document.getElementById("myPoints").textContent = points;
+        }
+
+        function makePoints() {
+            points += 10;
+            pointUpdate();
+        }
+		const exArray = [reveal1,reveal2,reveal5,reveal6,reveal11,reveal12,reveal13,reveal14,reveal15,reveal16,reveal17,reveal19];
+
+        function deductPoints() {
+            if (points >= 10) {
+                // Send a request to the server to deduct points
+                fetch('deduct_points.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ action: 'deduct', points: 10 })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        points -= 10;
+						const giftIndex = Math.floor(Math.random() * exArray.length); 
+						const randomFunction = exArray[giftIndex];
+						randomFunction();// Randomly select a gift index
+                        pointUpdate();
+                        //alert("You obtained a random gift!");
+                    } else {
+                        alert(data.message || "Failed to deduct points.");
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert("An error occurred while deducting points.");
+                });
+            } else {
+                alert("Not enough points!");
+            }
+        }
+		const lockBtn = document.getElementById("lock-btn");
+lockBtn.addEventListener("click", function() {
+				alert("items removed");
+                localStorage.removeItem("unlocked");
+                Quag.style.display = "none";
+				localStorage.setItem("Quagsire", "false");
+				karaoke.style.display = "none";
+				localStorage.setItem("Ka", "false");
+				gold1.style.display = "none";
+				localStorage.setItem("Gold1", "false");
+				gold.style.display = "none";
+				localStorage.setItem("Gold", "false");
+				spaghet.style.display = "none";
+				localStorage.setItem("Pasta", "false");
+				mozart.style.display = "none";
+				localStorage.setItem("mozart", "false");
+				Marco.style.display = "none";
+				localStorage.setItem("Marco", "false");
+				note.style.display = "none";
+				localStorage.setItem("note", "false");
+				green.style.display = "none";
+				localStorage.setItem("green", "false");
+				casino.style.display = "none";
+				localStorage.setItem("casino", "false");
+				glory.style.display = "none";
+				localStorage.setItem("glory", "false");
+				purple.style.display = "none";
+				localStorage.setItem("purple", "false");
+				snoc.style.display = "none";
+				localStorage.setItem("snoc", "false");
+				retro.style.display = "none";
+				localStorage.setItem("retro", "false");
+            });
+		function goldenGift() {//creates a function that will reward the user with a unique profile image for 1000 points
+if(points>=1000){
+points=points-=1000;
+pointUpdate();
+alert("you got gold!");
+var x = document.getElementById("gold");
+  x.style.display = "block";
+  localStorage.setItem("Gold", "true");
+}
+else{
+alert("not enough points");
+}
+}
+function goldenGift1() {
+if(points>=1000){
+points=points-=1000;
+pointUpdate();
+alert("you got gold!");
+var x = document.getElementById("gold1");
+  x.style.display = "block";
+  localStorage.setItem("Gold1", "true");
+}
+else{
+alert("not enough points");
+}
+}
+		function reveal0(){
+
+alert("sorry nothing");
+}
+function reveal1() {
+	alert("you got Quag");
+  var x = document.getElementById("Quag");
+  x.style.display = "block";
+  localStorage.setItem("Quagsire", "true");
+}
+function reveal2() {
+	alert("you got Karaoke");
+  var x = document.getElementById("karaoke");
+  x.style.display = "block";
+  localStorage.setItem("Ka", "true");
+}
+function reveal3() {
+	alert("you got doggo");
+  var x = document.getElementById("doggo");
+  x.style.display = "block";
+}
+function reveal4() {
+	alert("you got fuji");
+  var x = document.getElementById("fuji");
+  x.style.display = "block";
+}
+function reveal5() {
+	alert("Marco");
+  var x = document.getElementById("Marco");
+  x.style.display = "block";
+localStorage.setItem("Marco", "true");  
+}
+function reveal6() {
+	alert("you got Spaghetti");
+  var x = document.getElementById("spaghet");
+	x.style.display = "block";
+localStorage.setItem("Pasta", "true");
+}	
+
+function reveal7() {
+	alert("you got oshawott");
+  var x = document.getElementById("oshawott");
+  x.style.display = "block";
+}
+function reveal8() {
+	alert("you got beach");
+  var x = document.getElementById("beach");
+  x.style.display = "block";
+}
+function reveal9() {
+	alert("you got calm music");
+  var x = document.getElementById("calm");
+ x.style.display = "block";
+}
+function reveal10() {
+	alert("you got funk music");
+  var x = document.getElementById("funk");
+  x.style.display = "block";
+}
+function reveal11() {
+	alert("you got purple text");
+  var x = document.getElementById("purple");
+  x.style.display = "block";
+  localStorage.setItem("purple", "true");
+}
+function reveal12() {
+	alert("you got green text");
+  var x = document.getElementById("green");
+  x.style.display = "block";
+  localStorage.setItem("green", "true");
+}
+function reveal13() {
+	alert("you got Obama?");
+  var x = document.getElementById("snoc");
+  x.style.display = "block";
+  localStorage.setItem("snoc", "true");
+}
+function reveal14() {
+	alert("you got Retro");
+  var x = document.getElementById("retro");
+  x.style.display = "block";
+  localStorage.setItem("retro", "true");
+}
+function reveal15() {
+	alert("you got Mozart");
+  var x = document.getElementById("mozart");
+  x.style.display = "block";
+  localStorage.setItem("mozart", "true");
+}
+function reveal16() {
+	alert("you got notes");
+  var x = document.getElementById("note");
+  x.style.display = "block";
+  localStorage.setItem("note", "true");
+}
+function reveal17() {
+	alert("you got oppressive music");
+  var x = document.getElementById("glory");
+  x.style.display = "block";
+  localStorage.setItem("glory", "true");
+}
+function reveal18() {
+	alert("you got town music");
+  var x = document.getElementById("town");
+  x.style.display = "block";
+  
+}
+function reveal19() {
+	alert("you got casino music");
+  var x = document.getElementById("casino");
+  x.style.display = "block";
+  localStorage.setItem("casino", "true");
+}
+function reveal20() {
+	alert("you got monke");
+  var x = document.getElementById("monke");
+  x.style.display = "block";
+}
+function reveal21() {
+	alert("you got jungle");
+  var x = document.getElementById("jungle");
+  x.style.display = "block";
+}
+function reveal22() {
+	alert("you got penguin");
+  var x = document.getElementById("peng");
+  x.style.display = "block";
+}
+function reveal23() {
+	alert("you got Antartica");
+  var x = document.getElementById("south");
+  x.style.display = "block";
+}
+
+        // Fetch username dynamically
+        function fetchWord() {
+            fetch('NeoProfile.php')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('username').textContent = data;
+                })
+                .catch(error => console.error('Error fetching word:', error));
+        }
+        fetchWord();
+    </script>
+</body>
+</html>
