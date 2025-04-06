@@ -5,6 +5,7 @@ body {
     padding: 0;
     background-color: #f4f4f9;
     color: #333;
+height: 100%; /* Ensure the body takes up the full height of the viewport */
 }
 title{
     font-size: 24px;
@@ -17,6 +18,9 @@ title{
     padding: 2%;
     width: 90%;
     margin: 0 auto;
+min-height: 100%; /* Ensure the wrapper takes up the full height */
+    display: flex;
+    flex-direction: column;
 }
 
 .text-center {
@@ -161,7 +165,7 @@ title{
     color: #fff;
     text-align: center;
     padding: 10px 0;
-    position: fixed;
+    position: absolute;
     bottom: 0;
     width: 100%;
 }
@@ -173,6 +177,7 @@ title{
     margin: 20px auto;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+flex: 1; /* Push the footer to the bottom */
 }
 
 .col-4 {
@@ -213,4 +218,17 @@ title{
     background-color: #f1f1f1;
     cursor: pointer;
     transition: background-color 0.3s ease;
+}
+/* Add this to your admin.css file */
+footer {
+    height: 50px; /* Adjust the height as needed */
+    padding: 10px; /* Reduce padding */
+    font-size: 12px; /* Adjust font size if necessary */
+    text-align: center; /* Ensure proper alignment */
+}
+
+html, body {
+    height: 100%; /* Ensure the body takes up the full height of the viewport */
+    margin: 0;
+    padding: 0;
 }
