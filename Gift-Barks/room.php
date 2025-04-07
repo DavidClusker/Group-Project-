@@ -176,7 +176,7 @@
 					
 					<a class="nav-link" href=room.html>Book a Room</a>
 					
-					<a class="nav-link" href=Profile.html>Your Profile</a>
+					<a class="nav-link" href=Profile.php>Your Profile</a>
 					
 					<a class="nav-link" href=index.html>Login</a>
 					

@@ -21,7 +21,7 @@ $email = $_POST['email'] ?? 'Unknown';
 $address = $_POST['address'] ?? 'Unknown';
 
 // Convert price to cents (Stripe requires amounts in the smallest currency unit)
-$price_in_cents = $price * 1000;
+$price_in_cents = $price * 100;
 
 $checkout_session = \Stripe\Checkout\Session::create([
     'payment_method_types' => ['card'],
@@ -43,7 +43,7 @@ $checkout_session = \Stripe\Checkout\Session::create([
     ],
     'mode' => 'payment',
     'success_url' => 'http://localhost/Gift-Barks/payment_success.php?session_id={CHECKOUT_SESSION_ID}',
-    'cancel_url' => 'http://localhost/Gift-Barks/cancel.html',
+    //'cancel_url' => 'http://localhost/Gift-Barks/cancel.html', this doesnt work, it should be a page that exists
 ]);
 
 http_response_code(303);
